@@ -1,0 +1,28 @@
+.configs-container {
+  padding: 10px;
+}
+.configs-container .configs-names{
+  display: flex;
+  padding: 5px;
+  justify-content: space-around;
+}
+.configs-container .configs-box{
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+.configs-box .config{
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.config .input{
+  margin-top: 15px;
+  font-size: 18px;
+  width: 45%;
+  text-align: center;
+}

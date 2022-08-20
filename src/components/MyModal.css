@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.appear {
+  animation: appear 0.3s ease forwards;
+}
+.disappear {
+  animation: disappear 0.3s ease forwards;
+}
+@keyframes appear {
+  from {
+    transform: translateY(-500px);
+    backdrop-filter: blur(0);
+  }
+  to {
+    transform: translateY(0);
+    backdrop-filter: blur(2px);
+  }
+}
+@keyframes disappear {
+  from {
+    transform: translateY(0);
+    backdrop-filter: blur(2px);
+  }
+  to {
+    transform: translateY(600px);
+    backdrop-filter: blur(0);
+  }
+}
+.modal-content {
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 30px;
+}
+.modal-open-button {
+  margin-top: 30px;
+  font-size: 32px;
+  background: none;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-close-button {
+  padding: 5px;
+  border-radius: 30px;
+  font-size: large;
+  float: right;
+  cursor: pointer;
+}
+.modal-save-button{
+  padding: 5px;
+  border-radius: 30px;
+  font-size: large;
+  cursor: pointer;
+}
