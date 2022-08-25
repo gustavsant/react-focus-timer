@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-focus-timer/static/css/main.a2afb498.css",
+    "main.js": "/react-focus-timer/static/js/main.7d46d235.js",
+    "static/js/787.dd3e2432.chunk.js": "/react-focus-timer/static/js/787.dd3e2432.chunk.js",
+    "static/media/alarmsfx.mp3": "/react-focus-timer/static/media/alarmsfx.f455c3f73d82f346d860.mp3",
+    "index.html": "/react-focus-timer/index.html",
+    "main.a2afb498.css.map": "/react-focus-timer/static/css/main.a2afb498.css.map",
+    "main.7d46d235.js.map": "/react-focus-timer/static/js/main.7d46d235.js.map",
+    "787.dd3e2432.chunk.js.map": "/react-focus-timer/static/js/787.dd3e2432.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2afb498.css",
+    "static/js/main.7d46d235.js"
+  ]
+}
