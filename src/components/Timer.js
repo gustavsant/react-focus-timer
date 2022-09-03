@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './Timer.css'
 import configs from '../TimerConfigs.js'
-import MyModal from './MyModal'
+import sound from '../assets/alarmsfx.mp3'
 
 const Timer = () => {
+  const audio = new Audio(sound)
+
   let focusTime = configs.focusMin
   let shortRestMin = configs.shortRestMin
   let longRestMin = configs.longRestMin
@@ -15,27 +17,32 @@ const Timer = () => {
   const seconds = timeInSeconds % 60
 
   const changeTime = (time) => {
-    let willChange = window.confirm(
-      'Fazer isso resetará o relógio, você tem certeza?'
-    )
-    if (willChange) {
+    if (timeInSeconds !== totalTime) {
+      let willChange = window.confirm(
+        'Fazer isso resetará o relógio, você tem certeza?'
+      )
+      if (willChange) {
+        setTotalTime(time)
+        document.querySelector('#progress').style.strokeDashoffset =
+          1131 - (1131 * timeInSeconds) / totalTime
+        setTimeInSeconds(time)
+      } else {
+        return
+      }
+    } else {
       setTotalTime(time)
       document.querySelector('#progress').style.strokeDashoffset =
         1131 - (1131 * timeInSeconds) / totalTime
       setTimeInSeconds(time)
-    } else {
-      return
     }
   }
 
-  useEffect(() => {
-    console.log('tempo inteiro: ', totalTime)
-  }, [totalTime])
+  useEffect(() => {}, [totalTime])
 
   useEffect(() => {
-    console.log(timeInSeconds)
     if (timeInSeconds === 0) {
-      alert('tempo acabou')
+      audio.play()
+      document.querySelector('.timer-options').classList.remove('hidden')
       return
     } else {
       if (clockState !== 'pause') {
@@ -64,7 +71,6 @@ const Timer = () => {
       setStatText(<i class="bi bi-pause-circle-fill"></i>)
     }
   }
-
   return (
     <div className="main-container">
       <h1>react focus timer</h1>
@@ -76,7 +82,7 @@ const Timer = () => {
               changeTime(focusTime)
             }}
           >
-            Focus time
+            Focus!
           </span>
           <span
             className="timer-opt"
@@ -115,7 +121,6 @@ const Timer = () => {
             <button onClick={handleClockStats}>{statText}</button>
           </div>
         </div>
-        <MyModal />
       </div>
     </div>
   )
